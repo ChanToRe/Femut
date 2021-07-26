@@ -37,7 +37,7 @@ r1c1.value = "Number"
 r1c1.font = Font(bold=True)
 r1c1.alignment = Alignment(horizontal='center')
 r1c2 = ws.cell(row = 1, column = 2)
-r1c2.value = "gender"
+r1c2.value = "Sex"
 r1c2.font = Font(bold=True)
 r1c2.alignment = Alignment(horizontal='center')
 r1c3 = ws.cell(row = 1, column = 3)
@@ -66,9 +66,9 @@ print(" ")
 while True : 
     print("Male : 1\nFemale : 2\nExit : 3")
     print(" ")
-    gender = input(">>> ")
+    Sex = input(">>> ")
     print(" ")
-    if gender == '1': #Male
+    if Sex == '1': #Male
         print("You chose a Male")
         print("You can use Pearson formula, Trotter&Glaser formula, Huzii formula")
         print("Enter to 0, you go to First Page")
@@ -84,9 +84,9 @@ while True :
                 number = ws.cell(row = count, column = 1)
                 number.value = count - 1
                 number.alignment = Alignment(horizontal='center')
-                genderinsheet = ws.cell(row = count, column = 2)
-                genderinsheet.value = "Male"
-                genderinsheet.alignment = Alignment(horizontal='center')
+                Sexinsheet = ws.cell(row = count, column = 2)
+                Sexinsheet.value = "Male"
+                Sexinsheet.alignment = Alignment(horizontal='center')
                 femur_length = ws.cell(row = count, column = 3)
                 femur_length.value = femur
                 femur_length.alignment = Alignment(horizontal='center')
@@ -117,7 +117,7 @@ while True :
                 print(" ")
                 break
 
-    elif gender == '2': #Female
+    elif Sex == '2': #Female
         print("You chose a Female")
         print("You can use Pearson formula, Huzii formula")
         print("Enter to 0, you go to First Page")
@@ -131,9 +131,9 @@ while True :
                 number = ws.cell(row = count, column = 1)
                 number.value = count - 1
                 number.alignment = Alignment(horizontal='center')
-                gender = ws.cell(row = count, column = 2)
-                gender.value = "Female"
-                gender.alignment = Alignment(horizontal='center')
+                Sex = ws.cell(row = count, column = 2)
+                Sex.value = "Female"
+                Sex.alignment = Alignment(horizontal='center')
                 femur_length = ws.cell(row = count, column = 3)
                 femur_length.value = femur
                 femur_length.alignment = Alignment(horizontal='center')
@@ -160,7 +160,7 @@ while True :
                 print(" ")
                 break
             
-    elif gender == '3': #Exit
+    elif Sex == '3': #Exit
         wb.save('/Users/jch/Desktop/result.xlsx')
         print("="*30)
         print("="*11 + "Exit" + "="*10)
