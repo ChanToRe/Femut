@@ -69,7 +69,7 @@ while True :
     Sex = input(">>> ")
     print(" ")
     if Sex == '1': #Male
-        print("You chose a Male")
+        print("You choose a Male")
         print("You can use Pearson formula, Trotter&Glaser formula, Huzii formula")
         print("Enter to 0, you go to First Page")
         print(" ")
@@ -118,7 +118,7 @@ while True :
                 break
 
     elif Sex == '2': #Female
-        print("You chose a Female")
+        print("You choose a Female")
         print("You can use Pearson formula, Huzii formula")
         print("Enter to 0, you go to First Page")
         print(" ")
