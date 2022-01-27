@@ -15,11 +15,11 @@
 pip install pandas
 ```
 
-### 사용법
 ```bash
 git clone https://github.com/ChanToRe/Tall-Calculator.git
 ```
 
+### 사용법
 ```python
 python Tall_Calculator_new.py
 ```
