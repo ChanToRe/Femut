@@ -21,7 +21,7 @@ pip install pandas
 git clone https://github.com/ChanToRe/Tall-Calculator.git
 
 python Tall_Calculator_new.py
-
+```
 ```python
 
 savename = "파일 저장명"
