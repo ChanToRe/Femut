@@ -1,9 +1,4 @@
-#femur length를 이용하여 tall을 추정
-#144번줄에서 저장위치 변경
-from ast import Num
-from multiprocessing import cpu_count
 import pandas as pd
-import csv
 
 #Male
 def M_pearson(number):
