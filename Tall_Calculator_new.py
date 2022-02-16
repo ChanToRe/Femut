@@ -1,43 +1,50 @@
 import pandas as pd
 
-#Male
-def M_pearson(number):
-    result = 81.306 + 1.880 * number
+def pearson(Length, Sex='Male' or 'Female'):
+    if Sex == 'Male' and Length > 0:
+        result = 81.306 + 1.880 * Length
+    elif Sex == 'Female' and Length > 0:
+        result = 72.844 + 1.945 * Length
+    else :
+        pass
     return result
 
-def M_Trotter(number):
-    result = 2.15 * number + 72.57
+def tng(Length):
+    if Length > 0:
+        result = 2.15 * Length + 72.57
+    else :
+        pass
     return result
 
-def M_huzii(number):
-    result = (2.47 * (number*10) + 549.01)/10
-    return result
-
-#Female
-def F_pearson(number):
-    result = 72.844 + 1.945 * number
-    return result
-
-def F_huzii(number):
-    result = (2.24 * (number*10) + 610.43)/10
+def huzii(Length, Sex='Male' or 'Female'):
+    if Sex == 'Male' and Length > 0:
+        result = (2.47 * (Length*10) + 549.01)/10
+    elif Sex == 'Female' and Length > 0:
+        result = (2.24 * (Length*10) + 610.43)/10
+    else :
+        pass
     return result
 
 count = 0
 
-Number = []
-Sexe = []
-Femur_Length = []
-M_PF = []
-M_HF = []
-M_TGF = []
-F_PF = []
-F_HF = []
+Number_list = []
+Sex_list = []
+Length_list = []
+Pearson_male_list = []
+TnG_male_list = []
+Huzii_male_list = []
+Pearson_female_list = []
+Huzii_female_list = []
 
 #First Page
-print("="*30)
-print("="*9 + "femurtotall" + "="*10)
-print("="*30)
-print(" ")
+print("""
+   ___                    _   
+  / __\__ _ __ ___  _   _| |_ 
+ / _\/ _ \ '_ ` _ \| | | | __|
+/ / |  __/ | | | | | |_| | |_ 
+\/   \___|_| |_| |_|\__,_|\__|
+                              
+""")
 
 while True : 
     print("Male : 1\nFemale : 2\nExit : 3")
@@ -45,101 +52,114 @@ while True :
     Sex = input(">>> ")
     print(" ")
     if Sex == '1': #Male
-        print("You choose a Male")
-        print("You can use Pearson formula, Trotter&Glaser formula, Huzii formula")
-        print("Enter to 0, you go to First Page")
-        print(" ")
+        print("""
+        You choose a Male
+        You can use Pearson formula, Trotter&Glaser formula, Huzii formula
+        Enter to 0, you go to First Page
+
+        """)
         while True:
-            femur = float(input("Input the femur length >>> "))
-            if femur != 0:
-                MP = M_pearson(femur)
-                MT = M_Trotter(femur)
-                MH = M_huzii(femur)
+            Length = float(input("Input the femur length >>> "))
+            if Length > 0:
+                male_Pearson = pearson(Length, Sex='Male')
+                male_TnG = tng(Length)
+                male_Huzii = huzii(Length, Sex='Male')
 
                 count += 1
 
-                print("- Pearson formula : %0.3fcm" % MP)
-                print("- Huzii formula : %0.3fcm" % MH)
-                print("- Trotter&Glaser formula : %0.3fcm" % MT)
+                print("- Pearson formula : %0.3fcm" % male_Pearson)
+                print("- Huzii formula : %0.3fcm" % male_Huzii)
+                print("- Trotter&Glaser formula : %0.3fcm" % male_TnG)
                 print(" ")
 
-                Number.append(count)
-                Sexe.append("Male")
-                Femur_Length.append(femur)
-                M_PF.append(MP)
-                M_HF.append(MH)
-                M_TGF.append(MT)
-                F_PF.append('')
-                F_HF.append('')
+                Number_list.append(count)
+                Sex_list.append("Male")
+                Length_list.append(Length)
+                Pearson_male_list.append(male_Pearson)
+                Huzii_male_list.append(male_Huzii)
+                TnG_male_list.append(male_TnG)
+                Pearson_female_list.append('')
+                Huzii_female_list.append('')
 
-            elif femur == 0 :
-                print(" ")
-                print("=" * 30)
-                print("=" * 2 + "Go to First Page" + "=" * 2)
-                print("=" * 30)
-                print(" ")
+            elif Length == 0 :
+                print("""
+
+        Go to First Page
+
+                """)
                 break
+
+            else :
+                pass
 
     elif Sex == '2': #Female
-        print("You choose a Female")
-        print("You can use Pearson formula, Huzii formula")
-        print("Enter to 0, you go to First Page")
-        print(" ")
+        print("""
+
+        You choose a Female
+        You can use Pearson formula, Huzii formula
+        Enter to 0, you go to First Page
+
+        """)
         while True:
-            femur = float(input("Input the femur length >>> "))
-            if femur != 0:
-                FP = F_pearson(femur)
-                FH = F_huzii(femur)
+            Length = float(input("Input the femur length >>> "))
+            if Length > 0:
+                female_Pearson = pearson(Length, Sex='Female')
+                female_Huzii = huzii(Length, Sex='Male')
 
                 count += 1
 
-                print("- Pearson formula : %0.3fcm"  % FP)
-                print("- Huzii formula : %0.3fcm" % FH)
+                print("- Pearson formula : %0.3fcm"  % female_Pearson)
+                print("- Huzii formula : %0.3fcm" % female_Huzii)
                 print(" ")
 
-                Number.append(count)
-                Sexe.append("Female")
-                Femur_Length.append(femur)
-                F_PF.append(FP)
-                F_HF.append(FH)
-                M_PF.append('')
-                M_HF.append('')
-                M_TGF.append('')
+                Number_list.append(count)
+                Sex_list.append("Female")
+                Length_list.append(Length)
+                Pearson_female_list.append(female_Pearson)
+                Huzii_female_list.append(female_Huzii)
+                Pearson_male_list.append('')
+                TnG_male_list.append('')
+                Huzii_male_list.append('')
 
-            elif femur == 0 :
-                print(" ")
-                print("=" * 30)
-                print("=" * 2 + "Go to First Page" + "=" * 2)
-                print("=" * 30)
-                print(" ")
+            elif Length == 0 :
+                print("""
+
+        Go to First Page
+
+                """)
                 break
+
+            else :
+                pass
             
     elif Sex == '3': #Exit
         result_dict = dict(
-            num = Number,
-            Sex = Sexe,
-            Femur_Length = Femur_Length,
-            Male_Pearson = M_PF,
-            Male_Huzii = M_HF,
-            Male_TG = M_TGF,
-            Female_Pearson = F_PF,
-            Female_Huzii = F_HF
+            num = Number_list,
+            Sex = Sex_list,
+            Femur_Length = Length_list,
+            Male_Pearson = Pearson_male_list,
+            Male_Huzii = Huzii_male_list,
+            Male_TG = TnG_male_list,
+            Female_Pearson = Pearson_female_list,
+            Female_Huzii = Huzii_female_list
         )
         savename = "Result"
-        csv_Name = "~/Desktop/{}.csv".format(savename)
-        xlsx_Name = "~/Desktop/{}.xlsx".format(savename)
+        csv_Name = "./{}.csv".format(savename)
+        xlsx_Name = "./{}.xlsx".format(savename)
 
         DB = pd.DataFrame(result_dict)
         DB.to_csv(csv_Name)
         DB.to_excel(xlsx_Name)
 
-        print("="*30)
-        print("="*11 + "Exit" + "="*10)
-        print("="*30)
-        print(" ")
+        print("""
+        Exit
+
+        """)
         break
 
     else: #Error
-        print(" ")
-        print("Error")
-        print(" ")
+        print("""
+        Error
+        
+        """)
+        pass
