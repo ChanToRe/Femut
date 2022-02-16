@@ -36,6 +36,8 @@ git clone https://github.com/ChanToRe/Femut.git
 
 ### Instructions
 ```python
+from Femut.General import pearson, tng, huzii
+
 #Pearson
 pearson(Length, Sex='Male or Female')
 
