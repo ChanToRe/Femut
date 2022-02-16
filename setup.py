@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="Femut",
-    version="1.0.0",
+    version="1.0.1",
     license='MIT',
     author="Chantore",
     author_email="wnrnrxla@gmail.com",
